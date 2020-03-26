@@ -27,13 +27,14 @@
         android:textSize="30sp" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/userInput"
+        android:id="@+id/userInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/login_username"
         android:textColorHint="@color/semiwhite">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -42,7 +43,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/passInput"
+        android:id="@+id/passInputLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/semiwhite"
@@ -50,10 +51,12 @@
         app:passwordToggleTint="@color/white">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/login_password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textColor="@android:color/white" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
@@ -86,7 +89,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/colorButton"
-        android:text="@string/login_button" />
+        android:text="@string/login_button"
+        android:textColor="@android:color/white" />
 
     <Space
         android:layout_width="match_parent"
@@ -106,6 +110,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/ColorError"
         android:drawableStart="@drawable/ic_call_black_24dp"
-        android:text="@string/login_call_help" />
+        android:text="@string/login_call_help"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>
