@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    public int phoneNumber=1234567890;
+    public int phoneNumber=953636000;
     private VMGAccountManager accounts=new VMGAccountManager(new VMGAccount[]{
             new VMGAccount("invitado","estech1234"),
             new VMGAccount("alumno","alumno1234"),
@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.loginButton:
                 if(verifyCredentials(userInput.getEditText().getText().toString(),passInput.getEditText().getText().toString())){
                     Log.d("esTechApp","Login credentials accepted");
+                    Intent i =new Intent(this,SecondActivity.class);
+                    startActivity(i);
                 }else{
                     Log.d("esTechApp","Login credentials rejected");
                 }
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.forgotButton:
+
 
         }
     }
