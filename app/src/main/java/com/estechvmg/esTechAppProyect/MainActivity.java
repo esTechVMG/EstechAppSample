@@ -67,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     editor.apply();
                     Intent i =new Intent(this,SecondActivity.class);
                     startActivity(i);
+                    finish();
                 }else{
                     Log.d("esTechApp","Login credentials rejected");
                     loginFailedDialog();
