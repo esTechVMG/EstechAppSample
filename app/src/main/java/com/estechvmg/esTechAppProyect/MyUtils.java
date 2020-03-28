@@ -1,5 +1,10 @@
 package com.estechvmg.esTechAppProyect;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+
 class VMGAccountManager{
     private VMGAccount[] accs;
     VMGAccountManager(){
@@ -78,5 +83,21 @@ class VMGAccount{
         }else{
             return false;
         }
+    }
+}
+class DialogCreator{
+    private static AlertDialog.Builder alert;
+    public static AlertDialog.Builder createBasicDialog(Context context, String title, String message){
+        alert=new AlertDialog.Builder(context);
+        alert.setTitle(title);
+        alert.setMessage(message);
+        alert.setCancelable(true);
+        return alert;
+    }
+}
+class DummyClass{
+    //This class is only a set of empty methods to simulate unimplemented/unimplementable features.
+    public static void requestPasswordMailReset(String email){
+
     }
 }
