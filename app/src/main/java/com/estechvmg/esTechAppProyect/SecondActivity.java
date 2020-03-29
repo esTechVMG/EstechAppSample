@@ -3,13 +3,9 @@ package com.estechvmg.esTechAppProyect;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -23,17 +19,32 @@ public class SecondActivity extends AppCompatActivity {
     public BottomNavigationView bottomNav;
     @Override
 
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         bottomNav = findViewById(R.id.navigation);
-        loadFragment(bottomNav.getSelectedItemId());
+        loadFragment(fragments[0]);
         bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 item.setChecked(true);
                 int t=item.getItemId();
-                loadFragment(item.getItemId());
+                int selectedFragment=0;
+                switch (item.getItemId()){
+                    case R.id.homeOption:
+                        selectedFragment=0;
+                        break;
+                    case R.id.blogOption:
+                        selectedFragment=1;
+                        break;
+                    case R.id.galleryOption:
+                        selectedFragment=2;
+                        break;
+                    case R.id.contactOption:
+                        selectedFragment=3;
+                        break;
+                }
+                loadFragment(fragments[selectedFragment]);
                 return false;
             }
         });
@@ -56,38 +67,16 @@ public class SecondActivity extends AppCompatActivity {
         });
         exitAlert.show();
     }
-    private TabFragment[] fragments=new TabFragment[]{
-            new TabFragment(0),
-            new TabFragment(1),
-            new TabFragment(2),
-            new TabFragment(3),
+    private Fragment[] fragments=new Fragment[]{
+            new HomeFragment(),
+            new BlogFragment(),
+            new GalleryFragment(),
+            new ContactFragment()
     };
-    private void loadFragment(int id) {
-        int fragmentNum;
-        switch (id){
-            case R.id.homeOption:
-                Log.d("esTechApp","Selected Home");
-                fragmentNum=0;
-                break;
-            case R.id.blogOption:
-                Log.d("esTechApp","Selected Blog");
-                fragmentNum=1;
-                break;
-            case R.id.galleryOption:
-                fragmentNum=2;
-                Log.d("esTechApp","Selected Gallery");
-                break;
-            case R.id.contactOption:
-                fragmentNum=3;
-                Log.d("esTechApp","Selected Contact");
-                break;
-            default:
-                Log.d("esTechApp","Unrecognized");
-                fragmentNum=4;
-        }
+    private void loadFragment(Fragment fragment) {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        fragmentTransaction.replace(R.id.frame, fragments[fragmentNum]);
+        fragmentTransaction.replace(R.id.frame, fragment);
         fragmentTransaction.commit();
     }
 }

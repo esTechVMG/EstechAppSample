@@ -2,6 +2,7 @@
     <string name="app_name">Escuela Estech</string>
 
     <string name="logo_desc">esTech Logo</string>
+
     <string name="login_title">Login</string>
     <string name="login_username">Usuario</string>
     <string name="login_password">Contraseña</string>
