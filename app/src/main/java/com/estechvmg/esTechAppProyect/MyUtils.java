@@ -97,7 +97,7 @@ class DialogCreator{
     }
 }
 class DummyClass{
-    //This class is only a set of empty methods to simulate unimplemented/unimplementable features.
+    //This class is only a set of empty methods to simulate unimplementable features.
     public static void requestPasswordMailReset(String email){
 
     }

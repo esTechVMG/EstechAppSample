@@ -33,15 +33,19 @@ public class SecondActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case R.id.homeOption:
                         selectedFragment=0;
+                        setTitle("Escuela Estech");
                         break;
                     case R.id.blogOption:
                         selectedFragment=1;
+                        setTitle("Blog");
                         break;
                     case R.id.galleryOption:
                         selectedFragment=2;
+                        setTitle("Galería");
                         break;
                     case R.id.contactOption:
                         selectedFragment=3;
+                        setTitle("Contacto");
                         break;
                 }
                 loadFragment(fragments[selectedFragment]);
