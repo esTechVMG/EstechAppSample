@@ -1,12 +1,9 @@
 package com.estechvmg.esTechAppProyect;
 
 import android.content.Context;
-import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,13 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 public class BlogViewHolder extends RecyclerView.ViewHolder {
-    TextView tTittle,tDate;
-    ImageView imageBackground;
-    public BlogViewHolder(@NonNull View itemView) {
+    public ConstraintLayout layout;
+    public TextView tTittle,tDate;
+    public ImageView imageBackground;
+    public BlogViewHolder(@NonNull final View itemView) {
         super(itemView);
         tTittle=itemView.findViewById(R.id.tittle_textView);
         tDate=itemView.findViewById(R.id.date_textView);
         imageBackground=itemView.findViewById(R.id.imageBackground);
+        layout=itemView.findViewById(R.id.blog_item_layout);
     }
 }
 class BlogAdapter extends RecyclerView.Adapter<BlogViewHolder>{

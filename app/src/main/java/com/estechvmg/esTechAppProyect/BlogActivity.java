@@ -1,20 +1,27 @@
 package com.estechvmg.esTechAppProyect;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BlogActivity extends AppCompatActivity {
     public TextView headerTittle,date,firstText,secondText,thirdText;
     public ImageView imageOne,imageTwo,imageHeader;
+    public ImageButton blogExitButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        blogExitButton=findViewById(R.id.blogExitButton);
+        blogExitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         imageHeader=findViewById(R.id.blogHeader);
         imageOne=findViewById(R.id.firstImage);
         imageTwo=findViewById(R.id.secondImage);
@@ -32,6 +39,7 @@ public class BlogActivity extends AppCompatActivity {
         firstText.setText(b.getInt("firstText"));
         secondText.setText(b.getInt("secondText"));
         thirdText.setText(b.getInt("thirdText"));
+
 
 
     }
