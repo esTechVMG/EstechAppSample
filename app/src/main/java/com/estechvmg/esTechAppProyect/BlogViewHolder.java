@@ -1,6 +1,7 @@
 package com.estechvmg.esTechAppProyect;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,6 +45,14 @@ class BlogAdapter extends RecyclerView.Adapter<BlogViewHolder>{
         holder.imageBackground.setImageResource(thisBlog.image);
         holder.tDate.setText(thisBlog.date);
         holder.tTittle.setText(thisBlog.tittle);
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(holder.layout.getContext(),BlogActivity.class);
+                intent.putExtra("Blog",thisBlog);
+                holder.layout.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

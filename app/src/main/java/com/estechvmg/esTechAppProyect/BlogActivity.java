@@ -1,6 +1,7 @@
 package com.estechvmg.esTechAppProyect;
 
 import android.os.Bundle;
+import android.os.Debug;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -16,12 +17,6 @@ public class BlogActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         blogExitButton=findViewById(R.id.blogExitButton);
-        blogExitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
         imageHeader=findViewById(R.id.blogHeader);
         imageOne=findViewById(R.id.firstImage);
         imageTwo=findViewById(R.id.secondImage);
@@ -30,16 +25,16 @@ public class BlogActivity extends AppCompatActivity {
         firstText=findViewById(R.id.firstTextTextView);
         secondText=findViewById(R.id.secondTextTextView);
         thirdText=findViewById(R.id.thirdTextTextView);
-        Bundle b=getIntent().getExtras();
-        Log.d("esTechapp","" + b.getInt("header"));
-        imageHeader.setImageDrawable(getDrawable(b.getInt("header")));
-        imageOne.setImageResource(b.getInt("imageOne"));
-        imageTwo.setImageResource(b.getInt("imageTwo"));
-        date.setText(b.getInt("date"));
-        firstText.setText(b.getInt("firstText"));
-        secondText.setText(b.getInt("secondText"));
-        thirdText.setText(b.getInt("thirdText"));
-
+        try {
+            BlogPost blog=getIntent().getParcelableExtra("Blog");
+            date.setText(getResources().getString(blog.date));
+            firstText.setText(getResources().getString(blog.textOne));
+            secondText.setText(getResources().getString(blog.textTwo));
+            thirdText.setText(getResources().getString(blog.textThree));
+        }catch (Exception e){
+            Log.d("esTechApp","Unfixed Error");
+            e.printStackTrace();
+        }
 
 
     }
