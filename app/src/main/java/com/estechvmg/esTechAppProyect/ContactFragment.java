@@ -54,7 +54,6 @@ public class ContactFragment extends Fragment {
                 new VMGCardView(R.string.whatsapp,R.drawable.ic_whatsapp)
         };
         rv.setAdapter(new CardAdapter(getContext(),cards));
-
         return view;
     }
 
@@ -88,6 +87,7 @@ public class ContactFragment extends Fragment {
                         public void onClick(DialogInterface dialog, int which) {
                             Intent i=new Intent(Intent.ACTION_SENDTO);
                             i.putExtra(Intent.EXTRA_SUBJECT,"Formulario de Contacto");
+                            i.setType("text/html");
                             i.putExtra(Intent.EXTRA_EMAIL,new String[]{"info@escuelaestech.es","secretaria@escuelaestech.es"});
                             i.putExtra(Intent.EXTRA_TEXT,"Nombre: " + formName + "\nTelefono:" + formPhone + "\nCorreo:" + formEmail + "\nMensaje:" + formMessage);
                             startActivity(Intent.createChooser(i, "Send Email"));
