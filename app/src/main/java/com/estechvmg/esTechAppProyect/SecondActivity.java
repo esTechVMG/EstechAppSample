@@ -1,6 +1,8 @@
 package com.estechvmg.esTechAppProyect;
 
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,7 +20,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class SecondActivity extends AppCompatActivity {
     public BottomNavigationView bottomNav;
     @Override
-
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
